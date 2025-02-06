@@ -81,8 +81,6 @@ class TestController extends AbstractController
             throw new UnprocessableEntityHttpException("name and email are required");
         }
 
-        // TODO check by regex
-
         $countOfUsers = count(self::USERS_DATA);
 
         $newUser = [
@@ -91,7 +89,6 @@ class TestController extends AbstractController
             'email' => $requestData['email']
         ];
 
-        // TODO add new user to collection
 
         return new JsonResponse([
             'data' => $newUser
@@ -103,7 +100,6 @@ class TestController extends AbstractController
     {
         $this->findUserById($id);
 
-        // TODO remove user from collection
 
         return new JsonResponse([], Response::HTTP_NO_CONTENT);
     }
@@ -119,7 +115,6 @@ class TestController extends AbstractController
 
         $userData = $this->findUserById($id);
 
-        // TODO update user name
 
         $userData['name'] = $requestData['name'];
 
